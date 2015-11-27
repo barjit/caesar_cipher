@@ -9,7 +9,7 @@ def caesar_cipher(string, shift)
   shifted = ascii.map {|ascii| ascii + shift}
   
   #iterate through each (now modified) ascii number and convert it back to a string character:
-  convert = shift.map {|num| num.chr}
+  convert = shifted.map {|num| num.chr}
   
   #join array of string characters to make the new word:
   result = convert.join("")
@@ -17,4 +17,3 @@ def caesar_cipher(string, shift)
   #puts the new word:
   puts "#{result}"
 end
-
