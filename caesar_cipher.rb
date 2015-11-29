@@ -22,8 +22,25 @@ def caesar_cipher(string, shift)
       x
     end
   end
+
+#iterate through each character, if it is a number check the ascii range it is in and subtract 26 if it is not a letter anymore.
+  loop_back = shifted.map do |z|
+    if z.is_a? Integer
+      if (90..96) === z
+        z - 26
+      elsif (z > 122)
+        z - 26
+      else
+        z
+      end
+    else
+      z
+    end
+  end   
+
+
 #iterate through each (now modified) ascii number and convert it back to a string character:
-  convert = shifted.map do |y|
+  convert = loop_back.map do |y|
     if y.is_a? Integer
       y.chr
     else
@@ -33,7 +50,4 @@ def caesar_cipher(string, shift)
 
 #join array of string characters to make the new word:
   result = convert.join("")
-
-  puts "#{result}"
-
 end
